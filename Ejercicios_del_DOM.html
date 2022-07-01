@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es" data-dark>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios del DOM</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Mis Estilos-->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="./css/dom-ejercicios.css">
+    
+</head>
+<body data-dark>
+    <!--Encabezado-->
+    <header class="header" id="header">
+        <h1>Ejercicios del DOM</h1>
+    </header>
+    <!--Buttons-->
+    <!--Hamburger Btn-->
+    <button class="panel-btn hamburger hamburger--collapse shadow" id="panel-btn" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+    </button>
+    <!--Go Up Btn-->
+    <button class="goUp-btn shadow estas-activo" id="goUp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+        <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+      </svg>
+    </button>
+    <!--Dark btn-->
+    <button class="dark-btn shadow" id="dark-btn"> 
+      🌒
+    </button>
+    <!--Nav-->
+      <aside class="panel" data-dark>
+          <nav class="menu" data-dark>
+              <a href="#seccion1" data-scroll-spy>Reloj Digital y Alarma Sonora</a>
+              <a href="#seccion2" data-scroll-spy>Eventos del teclado</a>
+              <a href="#seccion3" data-scroll-spy>Countdown</a>
+              <a href="#seccion4" data-scroll-spy>Responsive con javascript</a>
+              <a href="#seccion5" data-scroll-spy>Responsive Tester</a>
+              <a href="#seccion6" data-scroll-spy>Detección de dispositivos (User Agent) </a>
+              <a href="#seccion7" data-scroll-spy>Detección de Conexión</a>
+              <a href="#seccion8" data-scroll-spy>Deteccion de la cámara web</a>
+              <a href="#seccion9" data-scroll-spy>Geolocalización</a>
+              <a href="#seccion10" data-scroll-spy>Filtros de busqueda</a>
+              <a href="#seccion11" data-scroll-spy>Sorteo Digital</a>
+              <a href="#seccion12" id="play" data-scroll-spy>Slide responsive</a>
+              <a href="#seccion13" data-scroll-spy>Video Inteligente</a>
+              <a href="#seccion14" data-scroll-spy>Validacion de Funcionario</a>
+              <a href="#seccion15" data-scroll-spy>Narrador</a>
+          </nav>
+      </aside>
+      <main>
+    <!--Reloj digital-->
+          <section id="seccion1" class="section" data-scroll-spy>
+              <h2>Reloj Digital y Alarma Sonora</h2>
+              <div id="reloj"></div>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="btn-iniciar" class="btn btn-bg">Iniciar Reloj</button>
+                <button id="btn-detener" class="btn btn-bg">Detener Rejoj</button>
+                <button id = "btn-iniciar-alarma" class="btn btn-bg">Iniciar Alarma</button>
+                <button id = "btn-detener-alarma" class="btn btn-bg">Detener Alarma</button>
+              </div>
+          </section>
+    <!--Eventos de teclado-->
+          <section id="seccion2" class="section" data-scroll-spy>
+            <h2>Eventos del teclado</h2>
+            <div id="area" class="area">
+              <div id="ball" class="ball">
+              </div>
+            </div>
+          </section>
+    <!--Countdown-->
+          <section id="seccion3" class="section" data-scroll-spy>
+            <h2>Countdown</h2>
+            <div id="countdown"></div>
+          </section>
+    <!--Resposive Design-->
+          <section id="seccion4" class="section" data-scroll-spy>
+            <h2>Resposive con Javascript</h2>
+            <button id="youtube"></button>
+            <button id="gMaps"></button>
+          </section>
+    <!--Responsive Tester-->
+          <section id="seccion5" class="section" data-scroll-spy>
+            <h2>Responsive Tester</h2>
+            <form id="responsive-tester">
+              <input class="form-control" name="direccion" type="url" placeholder="URL" required>
+              <br>
+              <input class="form-control" name="ancho" type="text" placeholder="Ancho" required>
+              <br>
+              <input class="form-control" name="alto" type="text" placeholder="Alto" required>
+              <br>
+              <input class="btn mb-2 btn-responsive" name="probar" type="submit" value="Probar">
+              <br>
+              <input class="btn btn-responsive" name="cerrar" type="button" value="Cerrar">
+              <br>
+            </form>
+          </section>
+    <!--Deteccion de dispositivos-->
+          <section id="seccion6" class="section" data-scroll-spy>
+            <h2>Detección de dispositivos <br> (User Agent)</h2>
+            <div id="user-divice"></div>
+            </section>
+    <!--Detección de connexión-->
+          <section id="seccion7" class="section" data-scroll-spy>
+            <h2>Detección de Conexión</h2>
+          </section>
+    <!--Detección de camara web-->
+          <section id="seccion8" class="section" data-scroll-spy>
+            <h2>Deteccion de la cámara web</h2>
+            <video href="" id="webcam"></video>
+          </section>
+    <!--Geolocalizacion-->
+          <section id="seccion9" class="section" data-scroll-spy>
+            <h2>Geolocalización</h2>
+            <div id="geolocation"></div>
+          </section>
+    <!--Filtros de Búsqueda-->
+          <section id="seccion10" class="section" data-scroll-spy>
+            <h2>Filtros de búsqueda</h2>
+            <form class="row g-3 justify-content-center mb-5 mt-2">
+              <div class="col-auto">
+                <input type="search" class="form-control card-filter" id="Busqueda" placeholder="Busqueda">
+              </div>
+            </form>
+            <article class="cards">
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/tech" alt="Tech">
+                <figcaption>Tech</figcaption>
+              </figure>
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/animals" alt="Animals">
+                <figcaption>Animals</figcaption>
+              </figure>
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+                <figcaption>Architecture</figcaption>
+              </figure>
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/people" alt="People">
+                <figcaption>People</figcaption>
+              </figure>
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/nature" alt="Nature">
+                <figcaption>Nature</figcaption>
+              </figure>
+              <figure class="card">
+                <img src="https://placeimg.com/200/200/any" alt="Any">
+                <figcaption>Any</figcaption>
+              </figure>
+            </article>
+          </section>
+    <!-- Sorteo Digital-->
+          <section id="seccion11" class="section" data-scroll-spy>
+            <h2>Sorteo Digital</h2>
+            <ul class="players">
+              <li id="1" class="player">JavaScript</li>
+              <li id="2" class="player">PHP</li>
+              <li id="3" class="player">JAVA</li>
+              <li id="4" class="player">C</li>
+              <li id="5" class="player">Python</li>
+              <li id="6" class="player">Ruby</li>
+              <li id="7" class="player">Go</li>
+              <li id="8" class="player">Visual Basic</li>
+              <li id="9" class="player">Rust</li>
+              <li id="10" class="player">Perl</li>
+            </ul>
+            <input type="button" value="Obtener Ganador" id="btn-lottery" class="btn-lg shadow btn-responsive">
+          </section>
+    <!-- Slide responsive-->
+          <section id="seccion12" class="section" data-scroll-spy>
+            <h2>Slide responsive</h2>
+            <div class="slider">
+              <div class="slider-silides">
+                <div class="slider-slide active">
+                  <img src="./assets/Vico1.JPG" alt="Vico1">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico2.JPG" alt="Vico2">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico3.JPG" alt="Vico3">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico4.JPG" alt="Vico4">
+                </div>                
+                <div class="slider-slide">
+                  <img src="./assets/Vico5.JPG" alt="Vico5">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico6.JPG" alt="Vico6">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico7.JPG" alt="Vico7">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico8.JPG" alt="Vico8">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico9.JPG" alt="Vico9">
+                </div>
+                <div class="slider-slide">
+                  <img src="./assets/Vico10.JPG" alt="Vico10">
+                </div>
+
+              <div class="slider-btns">
+                <a href="#" class="prev">&laquo</a>
+                <a href="#" class="next">&raquo</a>
+              </div>
+            </div>
+          </section>
+    <!-- Video Inteligente-->
+          <section id="seccion13" class="section" data-scroll-spy>
+            <h2>Video Inteligente</h2>
+            <video src="./assets/La Vela Puerca & Arquero - La Pastilla.mp4" muted class="video" data-scroll-video></video>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <video src="./assets/La Vela Puerca & Arquero - La Pastilla.mp4" controls muted class="video" data-scroll-video></video>
+          </section>
+    <!-- Formulario de contacto-->
+          <section id="seccion14" class="section" data-scroll-spy>
+            <h2>Validacion de Funcionario</h2>
+            <form class="contact-form" action="https://formsubmit.co/s_parrondo@hotmail.com" method="POST" target="_blank">
+              <legend>Envianos tus comentarios</legend>
+              <input type="text" name="name" placeholder="Escribe tu nombre" title="Nombre solo acepta letras y espacion en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+              <input type="email" name="email" placeholder="Ingresa tu correo" title="Email incorrecto" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+              <input type="text" name="subject" placeholder="Asunto a tratar" title="El asunto es requerido" required>
+              <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios"    title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+              <input type="submit" value="Enviar">
+              <!-- Loader -->
+              <div class="contact-form-loader none">
+                <img src="./assets/ball-triangle.svg" alt="Cargando">
+              </div>
+              <!-- Response -->
+              <div class="contact-form-response none">
+                <p>Los datos han sido enviado</p>
+              </div>
+            </form>
+            
+          </section>
+          <section id="seccion15" class="section" data-scroll-spy>
+            <h2>Narrador</h2>
+              <select id="speech-select">
+                <option value="">---Elige una voz---</option>
+              </select>
+              <br> <br>
+              <textarea id="speech-text" cols="50" rows="5" placeholder="Ingresa texto para leer" style="resize: none;"></textarea>
+              <br><br>
+              <button id="speech-btn">Leer texto</button>            
+          </section>
+      </main>
+
+    <!--Mi javascript-->
+    <script src="./index_dom.js" type="module"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+</body>
+</html>

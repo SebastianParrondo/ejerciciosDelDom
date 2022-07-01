@@ -1,0 +1,290 @@
+🔸📝❌📌
+📝Variables
+    Para declarar una cariable en Javascript debemos usar las siguientes palabras claves
+    🔸Var: Declara que la variable tiene un alcance global. 
+    🔸Let: Declara que la variable tiene un alcance local.
+    🔸Const: Tienen el mismo comportamiento que las variables declaradas con let excepto que su valor no se puede reasignar. Si un arreglo es declarado con este tipo de variable, el objeto nunca dejara de ser un arreglo pero si se puede cambiar los objetos que contenga.
+
+    Para mantener protegido los valores contenidos dentro de un arreglo declarado con const hay un metodo que lo hace:
+    🔸Object.freeze(el-objeto-a-proteger) 
+
+    --> Tipos de variables
+        Javascript es un lenguaje de tipado debil por lo que no hace falta al momento de declarar una variable decir que tipo de elemento almacenara. Las variables pueden ser:
+         
+         📌number
+         📌string
+         📌boolean
+         📌object
+         📌undefined --> Valor por defecto que tienen las variables cuando son declaradas pero no inicializadas. 
+         📌null
+         📌symbol
+         📌bigint
+    
+    -->Sencibilidad de Mayusculas
+        En JavaScript todas las variables y nombres de función son sensibles a mayúsculas y minúsculas. Esto significa que la capitalización importa.  
+        
+        🔸camelCase: los nombres de variables de múltiples palabras tienen la primera palabra en minúsculas y la primera letra de cada palabra posterior en mayúsculas.
+📝Operadores Matemticos
+    Estas operadores se utilizan para hacer operaciones matematicas entre variables numericas
+    🔸= --> asignación
+    🔸+ --> suma
+    🔸- --> resta
+    🔸* --> producto
+    🔸/ --> cociente
+    🔸% --> modulo (resto de una divicion)
+
+    Los operadores se pueden combinar de la siguiente manera
+    
+    🔸var++ -->suma una unidad al valor contenido en la variable
+    🔸var-- -->resta una unidad al valor contenido en la variable
+    🔸var += num --> suma el valor de sum a var.
+    🔸var -= num --> resta el valor de sum a var.
+    🔸var *= num --> multiplica el valor de sum a var.
+    🔸var /= num --> divide el valor de sum a var.
+
+    Otras utilidades
+
+    El signo " + " sirve para concatenar objetos de tipo string
+📝Operadores de comparacion
+    🔸== Devuelve true si los operandos son iguales. 
+    🔸!= Devuelve true si los operandos no son iguales.
+    🔸=== Devuelve true si los operandos son iguales y del mismo tipo.
+📝Dom
+    🔸Nodos, elementos y selectores
+        Los siguientes son metodos que recuperan elementos html pero que ya no se utilizan.
+
+        📌document.getElementsByTagName("li") --> entre parentesis se indiqua al tipo de elemento que queremos seleccionar.
+        📌document.getElementsByClassName("card")
+        📌document.getElementsByName("nombre")
+
+        -----Metodos utilizados-----
+        📌document.getElementById("idmenu") --> devuelve etiqueta html
+        📌document.getElementById("idmenu").content --> devuelve el contenido etiqueta html
+
+        📌document.querySelector(".card") --> devuelve al primer elemento que tenga la clase declarada y devuelve la etiqueta html
+        📌document.querySelectorAll(".card") --> devuelve todos los elementos que tengan la clase declarada y devuelve un nodelist. Acepta metodos de array como length (devuelve cantidad de elemento que tiene la clase declarada). Con notacion de corchetes podemos acceder a un elemento en particular segun su posicion. 
+
+    🔸Atributos y Data-attributes
+        Es posible acceder a todos los atributos de un elemento e interactuar con ellos. Para ello se puede hacer por medio de la notacion del punto:
+            📌document.documentElement --> esto devuelve todos los nodos que contiene la etiqueta HTML
+            📌document.documentElement.lang --> devuelve el valor del atributo lang
+        El metodo del punto puede no ser 100% efectiva al momento de devolver valores de atributos. Es por eso que se recomienda utilizar el metodo getAttribute
+            📌document.documentElement.getAttribute("lang")
+        
+        Para manipular elemento es posible hacerlo de la siguiente manera
+
+        documentElement.getAttribute("lang") = "en" --> declaramos que el lenguaje de la pagina es en ingles
+
+        Otra forma es guardar el elemento en una variable y recien ahi manipular su valor:
+
+        let $lang = ducument.documentElement.getAttribute("lang");
+        $lang = "es"; --> cambiamos el lenguaje de la pagina a español.
+
+        Lo recomendable es utilisar el metodo setAttribute(elemento, valor)
+
+        document.documentElement.setAttribute("lang", "es")
+
+        No solo es posible recuperar valores de un atributo, tambien podemos agegar atributos y valores a los elementos. Supongamos que tenemos una etiqueta <a> con la clase "class-js"le podemos agregar el atributo href y la direccion a donde queremos que se redireccione el link
+
+        const $link_prueba = document.querySelector(".link-dom");
+        $link_prueba.setAttribute("href", "https://www.youtube.com/");
+        $link_prueba.setAttribute("target", "_blank")
+
+        Otros metodos
+
+        📌$link_prueba.hasAttribute("atributo") --> devuelve un booleano respondiendo si la etiqueta tiene ese atributo
+        📌$link_prueba.removeAttribute("atributo") --> Elimina el atributo que tenga la etiqueta
+
+                                                //-----DATA-ATRIBUTES-----//
+        Los data-atributes son atributos que podemos crear y agregarlos a una etiqueta HTML. Para hacerlo si o si se debe declara anteponiendo la palabra data. Cada data-atributo que creemos se va a guardar en un elemento map. Si queremos acceder a uno por medio de la notacion del punto vamos a tener que hacer uso de dataSet que nos devuelve un map con todos los elementos datas-attribute que tenga la etiqueta seleccionada.
+
+        console.log(document.querySelector(".link-dom").dataset.description); --> accedi al valor guardado en el data-description que se encuentra en la etiqueta que tiene la clase link-dom
+
+        const $link_prueba = document.querySelector(".link-dom")
+        const $link_prueba.dataset.description = "otro valor" --> modifique el valor al data-atributo con notacion de punto
+        const $link_prueba.setAttribute("data-description", "nuevo valor") --> modifique el valor al data-atributo con metodo setAttribute
+
+    🔸Estilos y variables class
+        ❗Partiendo de la base de que al elemento con el que vamos a trabajar lo recuperamos a travez de querySelector(".nameClass") y lo almacenamos en una variable que nombraremos $linkDOM
+
+        Podemos acceder a las variables Css que tiene un elemento HTMl de dos maneras
+
+        --> Por el metodo .style
+        
+            $linkDOM.style --> nos devuelve un objeto con todos los estilos Css. Las que hayamos declarado figuraran con el valor definido, el resto no tendra ningun valor.
+        
+        --> Por el metodo getAttribute
+        
+            $linkDOM.style("style") --> nos devuelve los estilos que hayamos definodo como String.
+        
+        --> Por el método getComputedStyle
+            Para acceder a los estilos por intermedio de este metodo lo haremos a traves del objeto windows y por parametro pasamos el elemento puntual al cual querramos saber el estado de sus estilos Css
+        
+            windows.getComputedStyle($linkDOM) --> Devuelve un listado ordenado por un indice de todos los estilos css. Los que hayamos manipulado tendran el valo que le definimos y el resto tendra el valor por defecto.
+
+            ❗Los metodos que cuelgan de windows para llamarlos no es necesario anteponer el elemeto windows
+
+            getComputedStyle($linkDOM)
+
+            Si queremos acceder a un estilo detemonado lo hacemos con el metodo getPropertyValue("nombre-del-estilo")
+
+            getComputedStyle($linkDOM).getPropertyValue("Color")
+
+        //----------------------------------------------------------------------------------------//
+
+        Para modificar el valor de los estilos lo podemos hacer por medio de:
+
+        --> La notacion del punto
+        
+        $linkDOM.style.color = red --> definimos el valo rojo a la variable Css color.
+
+        --> El metodo setProperty("estilo", "valor")
+
+        $linkDOM.style.setProperty("background", "#222") --> definimos el coler de fondo.
+
+    🔸Clases y Css
+        Para acceder a la cadena de texto que tiene el atributo class en una etiqueta HTML con los metodos:
+
+        -->className
+            Este metodo devuelve una cadena con el nombre de las clases que tiene el elemento en cuestión.
+        -->classList
+            Esta metodo nos devuelve un arreglo en el que en cada una de las posiciones cada una de las clases que tenga el elemto en cuestión
+
+        Existen metodos que nos van ayudar a trabajar con atributos HTML del tipo class
+        
+            📌$linkDOM.classList.contains("nombreClase") --> nos devuelve un boolean dependiendo de si el atributo class contiene a nombreClase
+            
+            📌$linkDOM.classList.add("nombreClase") --> nos permite agregar una la clase nombreClase al atributo class del elemento apuntado en la variable $linkDOM. Si queremos agregar mas de una clase se puede hacer declarandola como parametro separand cada parametro con una coma.
+            
+            📌$linkDOM.classList.remove("nombreClase") --> quita la clase nombreClase del atriburo class.
+            
+            📌$linkDOM.classList.toggle("nombreClase") --> funciona como interruptor si el atributo class tiene como valor a la clase nombreClase este metodo la quita. Pero si no lo tiene lo agrega.
+            
+            📌$linkDOM.classList.replace("nombreClase", "nombreClase2") --> Remplaza el primer parametro por el segundo.
+
+            /* ***** ESTILOS CSS ******/
+
+            📌$linkDOM.style.estiloAPasar = valor --> pasamos de manera dinamica el estilo css con el valor corespondiente
+
+    🔸Texto y HTML
+
+        Estos metodos nos permiten incertar texto dentro de etiquetas html
+             📌$linkDOM.textContent = variable_que_contiene_texto --> Este método agrega el texto a la etiqueta señalada tal cual este escrito. Si el texto tiene etiquetas HTML estas no seran tenidas en cuenta.
+             📌$linkDOM.InnerHTML = variable_que_contiene_texto --> Este método agrega el el texto y reconoce el contenido HTML
+             📌$linkDOM.outerHTML = variable_que_contiene_texto --> Este método elimina la etiqueta señalada y lo remplaza por el contenido agregado en la variable texto. (reconoce contenido HTML).
+             📌document.createTextNode("texto") --> este método crea un nodo de texto el cual se le puede agregar a una etiqueta HTML.  
+
+    🔸Travesing - Recorriendo el DOM
+        Estos metodos nos va a permitir recorree los elementos que estan dentro de una etiqueta padre.
+
+            📌$linkDOM.children --> devuelve un coleccion de elementos HTML que son todas las etiquetas que esten dentro del elemeno padre apuntado por la variable $linkDOM.
+            📌$linkDOM.children[5] --> Podemos recorrer cada uno de los elementos contenidos con la notacion de corchete.
+            📌$linkDOM.firstElementChildren --> Devuelve el primer elemento hijo.
+            📌$linkDOM.lastElementChildren --> Devuelve el ultimo elemento hijo.
+            📌$linkDOM.parentElement --> Devuelve la etiqueta padre del objeto apuntado.
+            📌$linkDOM.previousElementSibling --> Devuelve la etiqueta exactamente anterior al elemento apuntado.
+            📌$linkDOM.previousElementSibling --> Devuelve la etiqueta exactamente posterior al elemento apuntado.
+            📌$linkDOM.closest("selector") --> Devuelve el padre mas cercano del tipo de selector que pasemos por parámetro.
+
+    🔸Creando elementos y fragmentos
+        Estos métodos permiten crear y agregar elementos al DOM.
+
+            📌document.createElement("etiqueta") --> Crea un elemento HTML dinamicamente.
+            📌$linkDOM.addChild --> Agrega un elemento hijo al elemento padre apuntado en la variable $linkDOM
+
+        Para mejorar el rendimiento de nuestra pagina al momento de agregar al DOM muchos elementos de manera dinamica lo que se hace es crear un fragmento al cual se le agregan a todos los elementos (nodos) nuevos y una vez todos creados se le agregan al DOM. Esto mejora el rendimiento porque el DON solo recibe una inserción y no tantas incerciones como elementos querramos agregar.  
+            📌document.createDocumentFragment() --> Este método crea un Fragmento que sirve como una variable para almacenar elementos HTML al momento de crearlos dinamicamente.
+
+    🔸Template
+        La etiqueta <template> es un modelo a seguir en el cual se estructua el contenido HTML que a traves de JavaScript se convierte en dinamico. Haciendo un paralelismo con POO la etiqueta template seria como una clase, la cual nos serve de modelo para crear estructuras a partir de ella. Ver clase N°69 de Jon Mircha 
+
+    🔸Modificando elementos (Estilo viejo)
+        Estos metodos nos permiten agregar elementos de manera dinamica al DOM.
+
+        $linkDOM = elemento de referencia. Es el elemento padre, el que contiene los elemento que queremos manipular o al que le queremos agregar cosas.
+
+        📌$linkDOM.replacechild("nuevo_elemento", "viejo_elemento") --> Este metodo remplaza el elemento nuevo por el elemento vieja declarado por parametro. Haciendo uso de los metodos de Travesing puedo remplazar un elemento concreto.
+        📌$linkDOM.insertBefore("nuevo_elemento", "elemento_referencia") --> este metodo inserta un nuevo elemento antes del elemento referencia que le pasemos por parametro.
+        📌$linkDOM.remove("elemento_a_eliminar") --> esta clase elimina el elemnto declarado.
+
+        Se puede clonar una estructura dinamica completa para ello vamos ausar el metodo cloneNode
+
+        📌$linkDOM.cloneNode(boolean) --> Esta clase clona al elemento al que estoy apuntando. Si por parametro no paso nada o el boolean false solo se clona las etiquetas con sus atributos de la clase padre apuntada. Si por parametro paso true se clona toda la estructura.  
+
+    🔸Modificando elementos (Estilo nuevos)
+        Nuevos metodos para agregar elementos al DOM 
+        $linkDOM --> recordemos que esta variable es la que contiene el elemento de referencia.
+
+        --> .insertAdjasent...
+            📌.insertAdjacentElement(position, elemento) --> Inserta elemento (etiqueta HTML) en la posición que le  indiquemos
+            📌.insertAdjacentHTML(position, HTML) --> Inserta codigo HTML n la posición que le indiquemos
+            📌.insertAdjacentText(positon, text) --> Inserta texto en la posición que le iniquemos.
+        
+        --> Position
+            beforebegin(hermano anterior)
+            afterbegin(primer hijo)
+            beeforeend(ultimo hijo)
+            afterend(Hermano siguiente)    
+
+    🔸Manejador de evento
+        Este método permite capturar un evento (accion del usuario con la pagina como por ejemplo un click sobre un elemento) y a partir de esa captura hacer que pase algo.
+
+            📌$linkDOM.addEventListener("evento", "accion_a_suceder")
+        
+        Las acciones que queremos hacer por lo general son funciones. Hay que tener en cuenta que estas funciones no pueden recibir parametros. Pasa solucionar este problema lo que se hace es que la funcion que pasemos como accion de un evento sea una arrow function y al contenido de esta sea la funcion en cuestion. De esta forma si podemos pasar marametros sin inconvenientes
+
+        --> ejemplo
+
+            function saludar(nombre = "Desconoci@"){
+                alert(`Hola ${nombre}`)
+            }
+
+            const $linkDom = document.getElementById("evento-multiple");
+
+            $linkDom.addEventListener("click",(e)=>{
+                saludar();
+                saludar("Sebastián");
+                console.log(e);
+            })
+        
+        --> Tipos de evento
+            📌 click -->evento de mouse
+            📌keydown -->evento de teclado
+            📌keyup -->evento de teclado
+            📌keypress -->evento de teclado
+            
+    🔸Flujo de evento
+        ver clase 74 de JonMircha
+
+    🔸stopPropagation & preventDefault
+        Estos son metodos propios del elemento event. Ver clase N°75 de JonMircha
+
+    🔸Delegación de eventos
+        Ver clas N°76 JonMircha
+
+    🔸 preventDefault
+        Este metodo se lo asignamos al evento de un accionListener para quitarle todas los comportamientos que tenga por defecto
+    🔸Eventos de teclado
+        Estas clases permiten generar eventos a partir de las teclas del teclado   
+
+        --> eventos que detectan acciones del teclado    
+            📌keydown --> detecta cuando una tecla es precionada
+            📌keyup --> detecta cuando una tecla es soltada
+            📌keypress --> detecta cuando se mantiene presionada una tecla
+
+        --> atributos del evento de teclado (keyboardEvent)
+            📌key --> nos dice que tecla fue la que desencadeno el evento
+            📌key --> nos dice el codigo de la tecla que desencadeno el evento
+            📌type --> nos dice cual es el tipo de evento
+            📌altKey --> nos devuelve un booleano si tocamos cualquier teclas + alt
+            📌ctrlKey --> nos devuelve un booleano si tocamos cualquier teclas + ctrl
+            📌shiftKey --> nos devuelve un booleano si tocamos cualquier teclas + shift
+    
+    🔸Metodos utiles
+        📌elemento.getBoundingClientRect --> este metodo devuelve el tamaño de un elemento y su posición relativa respecto a la ventana de visualización
+
+    🔸metodos windows
+        📌window.matchMedia(MediaQueryString) --> devuelve un nuevo objeto MediaQueryList con el cual podemos determinal informacion de  la medida de la ventana. Este nuevo objeto tiene el atributo matches que devuelve un booleano analizando si la ventana respeta la medida pasada en el MediaQueryString o no.
+    
+    🔸 Metodos navigator
+        📌navigator.onLine --> devuelve un booleano dependeno del estado de conexión a internet
